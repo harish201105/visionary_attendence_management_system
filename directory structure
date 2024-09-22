@@ -1,0 +1,11 @@
+/attendance_system
+    /static
+        /images
+    /templates
+        index.html
+    app.py
+    face_detection.py
+    requirements.txt
+    /models
+        face_recognition_model.h5
+    student_data.csv

@@ -1,0 +1,55 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            text-align: center;
+            margin: 20px 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Attendance Management System</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <label for="file">Upload Image:</label>
+        <input type="file" name="file" id="file" accept=".jpg, .jpeg, .png" required>
+        <button type="submit">Submit</button>
+    </form>
+    
+    {% if image_path %}
+        <h2>Uploaded Image:</h2>
+        <img src="{{ image_path }}" alt="Uploaded Image">
+    {% endif %}
+
+    {% if recognized_faces %}
+        <h2>Recognized Register Numbers:</h2>
+        <ul>
+            {% for face in recognized_faces %}
+                <li>{{ face }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
